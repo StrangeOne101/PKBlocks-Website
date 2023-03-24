@@ -223,7 +223,7 @@ Blockly.Blocks['break_block'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(135);
- this.setTooltip("Is the player currently sneaking?");
+ this.setTooltip("Break the specified block and drop an item");
  this.setHelpUrl("");
   }
 };
@@ -236,7 +236,7 @@ Blockly.Blocks['get_block'] = {
         .appendField(new Blockly.FieldTextInput("FIRE"), "block");
     this.setOutput(true, null);
     this.setColour(210);
- this.setTooltip("Check if the block provided matches fire");
+ this.setTooltip("Check if the block provided matches X");
  this.setHelpUrl("");
   }
 };
@@ -250,6 +250,179 @@ Blockly.Blocks['set_cooldown'] = {
     this.setNextStatement(true, null);
     this.setColour(135);
  this.setTooltip("Apply a cooldown (in milliseconds)");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['onstart'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("On Ability Start");
+    this.setNextStatement(true, null);
+    this.setColour(60);
+ this.setTooltip("When the ability starts, run the code bellow");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['onprogress'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("On Ability Tick");
+    this.setNextStatement(true, null);
+    this.setColour(60);
+ this.setTooltip("When the ability ticks, run the code bellow");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['onremove'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("On Ability Remove");
+    this.setNextStatement(true, null);
+    this.setColour(60);
+ this.setTooltip("When the ability is removed, run the code bellow");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['onload'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("On Ability Load");
+    this.setNextStatement(true, null);
+    this.setColour(60);
+ this.setTooltip("When the ability is loaded by the server, run the code bellow. Only happens once.");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player_message'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Send player the message")
+        .appendField(new Blockly.FieldTextInput("Hi there!"), "MESSAGE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("Send the player a message");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player_actionbar'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Set the actionbar to")
+        .appendField(new Blockly.FieldTextInput("Hi there!"), "MESSAGE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("Send an actionbar message to the player");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['server_broadcast'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Broadcast message ")
+        .appendField(new Blockly.FieldTextInput("Hi there!"), "MESSAGE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(135);
+ this.setTooltip("Broadcast a message across the server");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['server_log'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Log message")
+        .appendField(new Blockly.FieldTextInput("Hi there!"), "MESSAGE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(135);
+ this.setTooltip("Send a message to the console log");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['server_command'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Run server command")
+        .appendField(new Blockly.FieldTextInput("/say Hi"), "COMMAND");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(135);
+ this.setTooltip("Run a command on the server");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player_command'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Run player command")
+        .appendField(new Blockly.FieldTextInput("/suicide"), "COMMAND");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("Make the player run a command");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player_health_add'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Add player health")
+        .appendField(new Blockly.FieldNumber(2, 0, 5000, 0.5), "HEALTH");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("Add health to the player");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player_health_set'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Set player health")
+        .appendField(new Blockly.FieldNumber(20, 0, 100, 0.5), "HEALTH");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("Set health of the player");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player_fire'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Ignite player for")
+        .appendField(new Blockly.FieldNumber(3, 0, 360, 0.1), "SECONDS")
+        .appendField("seconds");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("Ignite the player for x seconds");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['player'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("The player");
+    this.setOutput(true, "Entity");
+    this.setColour(165);
+ this.setTooltip("The player");
  this.setHelpUrl("");
   }
 };
